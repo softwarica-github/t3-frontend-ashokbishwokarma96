@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProductRoutingModule } from './product-routing.module';
-import { ProductComponent } from './product/product.component';
-import { ProductAdapter } from './adapter/product.adapter';
-import { ProductService } from './service/product.service';
-import { CreateComponent } from './create/create.component';
+import { BuyRoutingModule } from './buy-routing.module';
+import { BuyComponent } from './buy/buy.component';
+import { BuyAdapter } from './adapter/buy.adapter';
+import { BuyService } from './service/buy.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogModule } from '@dashboard/shared/dialog/dialog.module';
 import { MatButtonModule } from '@angular/material/button';
 import { TableModule } from '@dashboard/shared/table/table.module';
 import { ImageUploadModule } from 'angular2-image-upload';
-import { ProductImageService } from './service/imageService.product';
+import { ProductService } from '../product/service/product.service';
+import { ProductAdapter } from '../product/adapter/product.adapter';
 
 @NgModule({
-  declarations: [ProductComponent, CreateComponent],
+  declarations: [BuyComponent],
   imports: [
     CommonModule,
-    ProductRoutingModule,
+    BuyRoutingModule,
     HttpClientModule,
     FormsModule,
     DialogModule,
@@ -29,9 +29,11 @@ import { ProductImageService } from './service/imageService.product';
     ImageUploadModule.forRoot(),
   ],
   providers:[
-    ProductAdapter,
-    ProductImageService,
-    ProductService
+    BuyAdapter,
+    BuyService,
+    ProductService,
+    ProductAdapter
+    
   ]
 })
-export class ProductModule { }
+export class BuyModule { }

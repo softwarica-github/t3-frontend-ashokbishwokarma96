@@ -1,0 +1,37 @@
+.card-login {
+          max-width: 20rem;
+      }
+      
+      .card-register {
+          max-width: 40rem;
+      }
+      
+      .login-container{
+          width:320px;
+          height: 100%;
+          position:absolute;
+          left:0;
+          right:0;
+          bottom:0;
+          max-width:100%;
+          max-height:100%;
+          margin:auto;
+      }
+      
+      .card-header{
+          padding: 5px 10px !important;
+          font-weight: 500;
+      }
+      
+      /* .card{
+          border : none;
+      } */
+      
+      .bg-primary-dark, .btn-primary-dark{
+          background: #0072c5;
+      }
+      
+      .form-label{
+          color : #7d7d7d ;
+      }
+      
