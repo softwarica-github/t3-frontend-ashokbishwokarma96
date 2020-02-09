@@ -1,0 +1,26 @@
+
+<table class="table table-bordered table-striped">
+    
+  <thead>
+  <tr>
+      <th sortColumn *ngFor="let col of column" [attr.sortKey]="col.property" [data]="datas">{{col.name}}
+          <i *ngIf="col.name!=='Contact Number'" class="fa fa-caret-up pull-right" ></i>
+        </th>
+     
+      <th *ngIf="mode || custMode || cartMode">Image</th>
+      <th *ngIf="custMode || cartMode" colspan="2" style="text-align: center">Action</th>
+      <th *ngIf="mode" colspan="3" style="text-align: center">Action</th>
+     </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let d of datas | filterList:filterText:filterField   | paginate: { itemsPerPage: perpage, currentPage: p }">
+      <td *ngFor="let col of column">{{ d[col.property] }} </td>
+      <td *ngIf="mode || cartMode"><img src="http://localhost:3000/images/{{d.productImage}}" height="90"/></td>
+      <td *ngIf="custMode"><img src="http://localhost:3000/images/{{d.userImage}}" height="90"/></td>
+      <td class="td-icon-width"><a (click)="edit(d.id)" *ngIf="mode"><i class="fas fa-edit"></i></a></td>
+            <td class="td-icon-width"><a (click)="passId(d.id)"><i class="fas fa-trash-alt"></i></a></td>
+  </tr>
+
+  </tbody>
+</table>    
+<pagination-controls (pageChange)="p = $event"></pagination-controls>

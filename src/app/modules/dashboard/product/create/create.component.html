@@ -1,0 +1,180 @@
+<c-dialog dialogWidth="900px" text="Product" [visible]="true">
+    <form [formGroup]="dataForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group row">
+            <label for="productName" class="col-sm-2 col-12 col-form-label pr-0">Product Name<small class="mandataory-icon">*</small></label>
+            <div class="col-sm-10 col-12">
+                 
+                          <input type="text" formControlName="productName"
+                       class="form-control form-control-sm" id="productName"
+                       autocomplete="off">
+                              <div *ngIf="submitted && field.productName.errors">
+                                  <small class="text-danger m-0 text-sm">Product Name is required</small>
+                                  <br/>
+                              </div>
+                              <div *ngIf="uniqueMsg">
+                                  <small class="text-danger m-0 text-sm">{{uniqueMsg}}</small>
+                                  <br/>
+                              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="productPrice" class="col-sm-2 col-12 col-form-label pr-0">Product Price<small class="mandataory-icon">*</small></label>
+            <div class="col-sm-10 col-12">
+                  
+                          <input type="text" formControlName="productPrice"
+                          class="form-control form-control-sm" id="productPrice"
+                          autocomplete="off">
+                              <div *ngIf="submitted && field.productPrice.errors">
+                                  <small class="text-danger m-0 text-sm">Product Price is required</small>
+                                  <br/>
+                              </div>
+                              <div *ngIf="uniqueMsg">
+                                  <small class="text-danger m-0 text-sm">{{uniqueMsg}}</small>
+                                  <br/>
+                              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="productCode" class="col-sm-2 col-12 col-form-label pr-0">Product Code<small class="mandataory-icon">*</small></label>
+            <div class="col-sm-10 col-12">
+                
+                          <input type="text" formControlName="productCode"
+                          class="form-control form-control-sm" id="productCode"
+                          autocomplete="off">
+                              <div *ngIf="submitted && field.productCode.errors">
+                                  <small class="text-danger m-0 text-sm">Product Code is required</small>
+                                  <br/>
+                              </div>
+                              <div *ngIf="uniqueMsg">
+                                  <small class="text-danger m-0 text-sm">{{uniqueMsg}}</small>
+                                  <br/>
+                              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="productAvailability" class="col-sm-2 col-12 col-form-label pr-0">Product Availability<small class="mandataory-icon">*</small></label>
+            <div class="col-sm-10 col-12">
+                   
+                          <input type="text" formControlName="productAvailability"
+                          class="form-control form-control-sm" id="productAvailability"
+                          autocomplete="off">
+                              <div *ngIf="submitted && field.productAvailability.errors">
+                                  <small class="text-danger m-0 text-sm">Product Availability is required</small>
+                                  <br/>
+                              </div>
+                              <div *ngIf="uniqueMsg">
+                                  <small class="text-danger m-0 text-sm">{{uniqueMsg}}</small>
+                                  <br/>
+                              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="materialUsed" class="col-sm-2 col-12 col-form-label pr-0">Material Used<small class="mandataory-icon">*</small></label>
+            <div class="col-sm-10 col-12">
+                 
+                          <input type="text" formControlName="materialUsed"
+                          class="form-control form-control-sm" id="materialUsed"
+                          autocomplete="off">
+                              <div *ngIf="submitted && field.productCode.errors">
+                                  <small class="text-danger m-0 text-sm">Material Used is required</small>
+                                  <br/>
+                              </div>
+                              <div *ngIf="uniqueMsg">
+                                  <small class="text-danger m-0 text-sm">{{uniqueMsg}}</small>
+                                  <br/>
+                              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="image" class="col-sm-2 col-12 col-form-label pr-0">Image<small class="mandataory-icon">*</small></label>
+            <div class="col-sm-10 col-12">
+                
+                          <!-- <input type="file" formControlName="image"
+                          class="form-control form-control-sm" id="image"
+                          autocomplete="off"> -->
+                          <image-upload [extensions]="['jpeg','png']"
+  (uploadFinished)="onUploadFinished($event)"
+        ></image-upload>
+                              <div *ngIf="submitted && field.image.errors">
+                                  <small class="text-danger m-0 text-sm">Image is required</small>
+                                  <br/>
+                              </div>
+                              <div *ngIf="uniqueMsg">
+                                  <small class="text-danger m-0 text-sm">{{uniqueMsg}}</small>
+                                  <br/>
+                              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="productQuantity" class="col-sm-2 col-12 col-form-label pr-0">Product Quantity<small class="mandataory-icon">*</small></label>
+            <div class="col-sm-10 col-12">
+            
+                          <input type="text" formControlName="productQuantity"
+                          class="form-control form-control-sm" id="productQuantity"
+                          autocomplete="off">
+                              <div *ngIf="submitted && field.productQuantity.errors">
+                                  <small class="text-danger m-0 text-sm">Product Availability is required</small>
+                                  <br/>
+                              </div>
+                              <div *ngIf="uniqueMsg">
+                                  <small class="text-danger m-0 text-sm">{{uniqueMsg}}</small>
+                                  <br/>
+                              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="productDescription" class="col-sm-2 col-12 col-form-label pr-0">Product Descripttion<small class="mandataory-icon">*</small></label>
+            <div class="col-sm-10 col-12">
+                 
+                          <input type="text" formControlName="productDescription"
+                          class="form-control form-control-sm" id="productDescription"
+                          autocomplete="off">
+                              <div *ngIf="submitted && field.productDescription.errors">
+                                  <small class="text-danger m-0 text-sm">Product Code is required</small>
+                                  <br/>
+                              </div>
+                              <div *ngIf="uniqueMsg">
+                                  <small class="text-danger m-0 text-sm">{{uniqueMsg}}</small>
+                                  <br/>
+                              </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="productMadeDate" class="col-sm-2 col-12 col-form-label pr-0">Product Made Date<small class="mandataory-icon">*</small></label>
+            <div class="col-sm-10 col-12">
+                          <input type="text" formControlName="productMadeDate"
+                          class="form-control form-control-sm" id="productMadeDate"
+                          autocomplete="off">
+                              <div *ngIf="submitted && field.productMadeDate.errors">
+                                  <small class="text-danger m-0 text-sm">Product Code is required</small>
+                                  <br/>
+                              </div>
+                              <div *ngIf="uniqueMsg">
+                                  <small class="text-danger m-0 text-sm">{{uniqueMsg}}</small>
+                                  <br/>
+                              </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+                <button type="submit" style="margin-right:6px" mat-stroked-button>{{button}}</button>
+                <a routerLink="/dashboard/product">
+                    <button type="button" mat-stroked-button>Cancel</button>
+                </a>
+        </div>
+
+        
+    </form>
+  
+  </c-dialog>
+  
+  

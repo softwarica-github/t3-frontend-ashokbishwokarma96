@@ -1,0 +1,23 @@
+<div class="col-lg-12 header">
+  Product  :  List
+</div>
+<div class="col-lg-12" style="padding-left:0px">
+        <div class="table-top">
+            <div class="form-group col-sm-2 mt-2">
+                <input type="text" id="myInput" (keyup)="search($event)"  class="form-control" placeholder="search..."  [(ngModel)]="filterText"/>
+            </div>
+            <a routerLink="/dashboard/product/create" type="button" class="btn btn-primary pull-right">
+                Add
+            </a>
+        </div>
+        <app-table
+         [datas]="data"
+         [column]="columnList"
+         [filterField]="filterField"
+         [filterText]="filterText"
+         (setID)="delete($event)" 
+         [editlink]="link"
+         [mode]="true"
+         ></app-table>
+    </div>
+    <router-outlet></router-outlet>
