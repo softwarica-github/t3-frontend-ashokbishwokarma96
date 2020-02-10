@@ -12,11 +12,7 @@ export class ProductService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  url:string="http://localhost:3000/product";
-  urlforedit="http://localhost:3000/products/product/";
-  urlforadd:string="http://localhost:3000/products/addproduct/";
-  urlforupdate="http://localhost:3000/products/update/"
-  urlfordelete="http://localhost:3000/products/delete/"
+  url:string="http://localhost:3000/products";
 
   private message= new BehaviorSubject(['']);
   public getMessage=this.message.asObservable();
@@ -32,7 +28,7 @@ export class ProductService {
       );
     }
     add(data:any): Observable<Product> {
-      return this.http.post(this.urlforadd, data)
+      return this.http.post(this.url, data)
           .pipe(
               map((data: any) => {console.log(data); return data})
           );
@@ -41,22 +37,28 @@ export class ProductService {
 
     getByID(id: string): Observable<any> {
 
-      let uri=this.urlforedit+id;
+      let uri=this.url+id;
       return this.http.get(uri).pipe();
+
     }
     
     update(data:any,id:any): Observable<any> {
-      return this.http.patch(this.urlforupdate+id, data).pipe();
+
+      return this.http.patch(this.url+id, data).pipe();
+
     }
     
     delete(id: string): Observable<any> {
-      let uri=this.urlfordelete+id;
+
+      let uri=this.url+id;
        return this.http.delete(uri).pipe();
+
     }
 
     setMessage(message):void{
+
       this.message.next(message);
-          
+
   }
 }
   

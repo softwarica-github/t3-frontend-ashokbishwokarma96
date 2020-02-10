@@ -12,11 +12,8 @@ export class CustomerService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  urltoshowcustomer:string="http://localhost:3000/users/allusers/";
-  urlforedit="http://localhost:3000/users/update/";
+  url:string="http://localhost:3000/users/";
   urlforadd:string="http://localhost:3000/users/signup/";
-  urlforupdate="http://localhost:3000/users/update/"
-  urlfordelete="http://localhost:3000/users/delete/"
 
   private message= new BehaviorSubject(['']);
   public getMessage=this.message.asObservable();
@@ -25,7 +22,7 @@ export class CustomerService {
       private adapter: CustomerAdapter) { }
   
       get(): Observable<any> {
-        return this.http.get(this.urltoshowcustomer).pipe(
+        return this.http.get(this.url).pipe(
           map((data: any[]) => {
             return data.map((item: any) => this.adapter.adapt(item));
         })
@@ -41,16 +38,16 @@ export class CustomerService {
 
     getByID(id: string): Observable<any> {
 
-      let uri=this.urlforedit+id;
+      let uri=this.url+id;
       return this.http.get(uri).pipe();
     }
     
     update(data:any,id:any): Observable<any> {
-      return this.http.patch(this.urlforupdate+id, data).pipe();
+      return this.http.patch(this.url+id, data).pipe();
     }
     
     delete(id: string): Observable<any> {
-      let uri=this.urlfordelete+id;
+      let uri=this.url+id;
        return this.http.delete(uri).pipe();
     }
 

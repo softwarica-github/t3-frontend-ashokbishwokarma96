@@ -12,8 +12,8 @@ export class CartService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  url:string="http://localhost:3000/cart/cartproduct";
-  urlfordelete="http://localhost:3000/cart/delete/"
+  url:string="http://localhost:3000/cart/"
+
 
   private message= new BehaviorSubject(['']);
   public getMessage=this.message.asObservable();
@@ -30,7 +30,7 @@ export class CartService {
     }
   
     delete(id: string): Observable<any> {
-      let uri=this.urlfordelete+id;
+      let uri=this.url+id;
        return this.http.delete(uri).pipe();
     }
 
