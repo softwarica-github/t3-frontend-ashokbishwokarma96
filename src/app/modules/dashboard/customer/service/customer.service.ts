@@ -13,7 +13,7 @@ export class CustomerService {
   };
 
   url:string="http://localhost:3000/users/";
-  urlforadd:string="http://localhost:3000/users/signup/";
+  urlforadd:string="http://localhost:3000/users/signups/";
 
   private message= new BehaviorSubject(['']);
   public getMessage=this.message.asObservable();

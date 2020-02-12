@@ -4,6 +4,7 @@ import { BuyAdapter } from '../adapter/buy.adapter';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Buy } from '../model/buy.model';
+import { Product } from '@dashboard/dashboard/product/model/product.model';
 
 @Injectable()
 export class BuyService {
@@ -12,7 +13,8 @@ export class BuyService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  url:string="http://localhost:3000/product";
+  url:string="http://localhost:3000/products/";
+  urlfororder:string="http://localhost:3000/order/"
   urlfordelete="http://localhost:3000/cart/delete/"
 
   private message= new BehaviorSubject(['']);
@@ -27,6 +29,14 @@ export class BuyService {
             return data.map((item: any) => this.adapter.adapt(item));
         })
       );
+    }
+
+    add(data:any): Observable<Product> {
+      return this.http.post(this.urlfororder, data)
+          .pipe(
+              map((data: any) => {console.log(data); return data})
+          );
+
     }
   
 

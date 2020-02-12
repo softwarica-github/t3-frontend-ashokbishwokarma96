@@ -10,7 +10,7 @@ export class LoginService {
     private mainURL = "http://localhost:3000";
     private controller = "/users";
     private action = "/login";
-    private actionSignup = "/signup";
+    private actionSignup = "/signups";
 
     private messages = new BehaviorSubject('');
 

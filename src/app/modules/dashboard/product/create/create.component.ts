@@ -94,6 +94,7 @@ export class CreateComponent implements OnInit {
       formData.append('productMadeDate', this.dataForm.value.productMadeDate);
       console.log(formData);
       // this.imageService.uploadImage(this.imagefile).subscribe(res=>{
+
         if(this.button==="Update"){
           let id = this.extract[this.extract.length - 2];
           this.service.update(formData,id).subscribe(
@@ -104,6 +105,7 @@ export class CreateComponent implements OnInit {
   
             }
         );
+        
         }else{
          
           this.service.add(formData)

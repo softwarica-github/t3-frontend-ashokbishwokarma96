@@ -12,7 +12,7 @@ export class ProductService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  url:string="http://localhost:3000/products";
+  url:string="http://localhost:3000/products/";
 
   private message= new BehaviorSubject(['']);
   public getMessage=this.message.asObservable();
