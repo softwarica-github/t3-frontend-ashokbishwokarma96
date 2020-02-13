@@ -2,7 +2,7 @@ export let columnsList = [
     {name: 'Customer Name', property: "name"},
     {name: 'Email', property: "email"},
     {name: 'Phone number', property: "phone"},
-    {name: 'Password', property: "password"},
+    // {name: 'Password', property: "password"},
     {name: 'Admin', property: "admin"}
   
 

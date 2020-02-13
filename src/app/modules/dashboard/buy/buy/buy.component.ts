@@ -17,6 +17,7 @@ dataForm:FormGroup
 
   ngOnInit() {
     this.getData();
+    this.createform();
     this.service.getMessage.subscribe(
       () => {
           this.getData();
@@ -51,15 +52,19 @@ this.service.get().subscribe(
 
   onSubmit($id){
 this.productService.getByID($id).subscribe((res)=>{
-  console.log(this)
+  console.log(this.dataForm.value.quantity)
   this.dataForm.setValue({
-    productName:res.ProductName,
-    productPrice:res.ProductPrice,
+    productName:res.productName,
+    productPrice:res.productPrice,
     productImage:res.productImage,
     userEmail:localStorage.getItem('email'),
-    quantity:this.dataForm['quantity'].value?this.dataForm['quantity'].value:1
+    quantity:this.dataForm.value.quantity
   })
-console.log(this.dataForm.value)
+this.service.addCart(this.dataForm.value).subscribe((res)=>{
+  this.alertService.show({
+    message: "Buy successful",
+    alertType: "success"
+   })});
 })
   }
 

@@ -10,11 +10,12 @@ import { Product } from '@dashboard/dashboard/product/model/product.model';
 export class BuyService {
   
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    headers: new HttpHeaders({ 'Authorization': 'Bearer '+localStorage.getItem('username') })
   };
 
   url:string="http://localhost:3000/products/";
   urlfororder:string="http://localhost:3000/order/"
+  urlforcart:string="http://localhost:3000/cart/"
   urlfordelete="http://localhost:3000/cart/delete/"
 
   private message= new BehaviorSubject(['']);
@@ -33,6 +34,14 @@ export class BuyService {
 
     add(data:any): Observable<Product> {
       return this.http.post(this.urlfororder, data)
+          .pipe(
+              map((data: any) => {console.log(data); return data})
+          );
+
+    }
+
+    addCart(data:any): Observable<Product> {
+      return this.http.post(this.urlforcart, data,this.httpOptions)
           .pipe(
               map((data: any) => {console.log(data); return data})
           );
