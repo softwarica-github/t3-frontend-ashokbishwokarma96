@@ -58,11 +58,7 @@ this.service.get().subscribe(
          })
           this.service.setMessage(true);
 
-        
-
-      }
-    
+      }   
     )
   }
-
 }

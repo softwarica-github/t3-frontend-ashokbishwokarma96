@@ -13,14 +13,6 @@ export class CustomerAdapter implements Adapter<Customer> {
             item.password,
             item.image,
             item.admin,
-          
-            // public id: string,
-            // public name: string,
-            // public email: string,
-            // public phone: string,
-            // public password: string,
-            // public image: string,
-            // public admin:string
 
             );
     }
