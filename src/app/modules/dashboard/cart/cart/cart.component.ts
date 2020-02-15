@@ -57,12 +57,7 @@ this.service.get().subscribe(
           alertType: "success"
          })
           this.service.setMessage(true);
-
-        
-
       }
-    
     )
   }
-
 }

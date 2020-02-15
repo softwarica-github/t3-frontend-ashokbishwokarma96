@@ -6,7 +6,6 @@
             <div class="form-group col-sm-2 mt-2">
                 <input type="text" id="myInput" (keyup)="search($event)"  class="form-control" placeholder="search..."  [(ngModel)]="filterText"/>
             </div>
-        
         </div>
         <app-table
          [datas]="data"
