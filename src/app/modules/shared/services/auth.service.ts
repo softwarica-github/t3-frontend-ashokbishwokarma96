@@ -7,9 +7,6 @@ import {HttpClient} from "@angular/common/http";
 @Injectable()
 export class AuthService {
 
-    // private currentUserRole: string;
-
-
     private controller = "/users";
     private action = "/logout";
 
@@ -27,22 +24,7 @@ export class AuthService {
         this.messages.next(message);
     }
 
-    // getUsername() {
-    //     let username: string = "";
-    //     let accessToken = localStorage.getItem("symmetric_interface");
-    //     if (accessToken) {
-    //         const jwtHelper = new JwtHelperService();
-    //         let decodedToken = jwtHelper.decodeToken(accessToken);
-
-
-    //         if (decodedToken) {
-    //             username = decodedToken.data[0];
-    //         }
-    //     }
-
-    //     return username;
-
-    // }
+  
 
     /**
      * Check if user is logged in or not

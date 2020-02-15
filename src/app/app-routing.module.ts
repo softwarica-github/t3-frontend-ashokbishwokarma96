@@ -12,7 +12,7 @@ const routes: Routes = [
     {
         path: 'login',
         loadChildren: './modules/entry/entry.module#EntryModule',
-        // canActivate: [LoginGuard]
+     
     },
     {
         path: 'dashboard',

@@ -22,7 +22,7 @@ perpage=3;
   constructor(private router:Router) { }
 
   ngOnInit() {
-    // this.perpage=this.mode?3:12;
+  
   }
  
 passId(id:number):void{
