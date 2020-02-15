@@ -60,7 +60,7 @@ this.productService.getByID($id).subscribe((res)=>{
     userEmail:localStorage.getItem('email'),
     quantity:this.dataForm.value.quantity
   })
-this.service.addCart(this.dataForm.value).subscribe((res)=>{
+this.service.addOrder(this.dataForm.value).subscribe((res)=>{
   this.alertService.show({
     message: "Buy successful",
     alertType: "success"

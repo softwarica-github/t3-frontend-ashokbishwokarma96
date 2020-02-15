@@ -15,8 +15,7 @@ export class BuyService {
 
   url:string="http://localhost:3000/products/";
   urlfororder:string="http://localhost:3000/order/"
-  urlforcart:string="http://localhost:3000/cart/"
-  urlfordelete="http://localhost:3000/cart/delete/"
+
 
   private message= new BehaviorSubject(['']);
   public getMessage=this.message.asObservable();
@@ -40,7 +39,7 @@ export class BuyService {
 
     }
 
-    addCart(data:any): Observable<Product> {
+    addOrder(data:any): Observable<Product> {
       return this.http.post(this.urlfororder, data,this.httpOptions)
           .pipe(
               map((data: any) => {console.log(data); return data})
