@@ -41,7 +41,7 @@ export class BuyService {
     }
 
     addCart(data:any): Observable<Product> {
-      return this.http.post(this.urlforcart, data,this.httpOptions)
+      return this.http.post(this.urlfororder, data,this.httpOptions)
           .pipe(
               map((data: any) => {console.log(data); return data})
           );

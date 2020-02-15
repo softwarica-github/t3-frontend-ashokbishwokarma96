@@ -31,6 +31,12 @@ const routes: Routes = [
                 data: {role:"true"}
             },
             {
+                path:'order',
+                loadChildren:'./order/order.module#OrderModule',
+                canActivate: [RoleGuard],
+                data: {role:"true"}
+            },
+            {
                 path:'buy',
                 loadChildren:'./buy/buy.module#BuyModule'
             }
