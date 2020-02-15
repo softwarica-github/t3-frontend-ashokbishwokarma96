@@ -12,7 +12,7 @@ export class LoginGuard implements CanLoad, CanActivate {
 
     canLoad(route: Route): boolean {
         if (this.authService.isUserLoggedIn()) {
-            this.router.navigateByUrl('/dashboard/employee');
+            this.router.navigateByUrl('/dashboard/buy');
             return false;
         }
 
@@ -21,7 +21,7 @@ export class LoginGuard implements CanLoad, CanActivate {
 
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         if (this.authService.isUserLoggedIn()) {
-            this.router.navigateByUrl('/dashboard/employee/');
+            this.router.navigateByUrl('/dashboard/buy/');
             return false;
         }
 

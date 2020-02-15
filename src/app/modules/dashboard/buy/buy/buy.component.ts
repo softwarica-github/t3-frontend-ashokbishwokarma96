@@ -5,6 +5,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { ProductService } from '@dashboard/dashboard/product/service/product.service';
 import { CartService } from '@dashboard/dashboard/cart/service/cart.service';
 
+
 @Component({
   selector: 'app-buy',
   templateUrl: './buy.component.html',
@@ -12,6 +13,8 @@ import { CartService } from '@dashboard/dashboard/cart/service/cart.service';
 })
 export class BuyComponent implements OnInit {
 data;
+filterField;
+filterText;
 dataForm:FormGroup
   constructor(private service:BuyService,private productService:ProductService,private alertService: AlertMessageService,private fb:FormBuilder) { }
 
@@ -49,6 +52,16 @@ this.service.get().subscribe(
       }
     );
   }
+
+  search($event : KeyboardEvent){
+    console.log(this.filterText);
+}
+
+getFilterField():void{
+  this.filterField = [
+    'productName'
+  ];
+}
 
   onSubmit($id){
 this.productService.getByID($id).subscribe((res)=>{

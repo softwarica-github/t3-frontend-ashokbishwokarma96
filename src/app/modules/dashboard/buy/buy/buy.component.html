@@ -1,10 +1,9 @@
 <div class="col-lg-12 header">
   Buying  :  Section
 </div>
+
 <div class="col-lg-12" style="padding-left:0px">
    <div *ngFor="let d of data" class="col-lg-4">
-  
-
       <div style="text-align: center;border:solid 1px #1e71c6; margin-bottom:10px;margin-top:10px">
         <img src="http://localhost:3000/images/{{d.productImage}}" height="90"/>
     
@@ -14,6 +13,7 @@
 
         <button style="margin:10px" (click)="onSubmit(d.id)">Buy</button>
       </div>
+
    </div>
      
     </div>
